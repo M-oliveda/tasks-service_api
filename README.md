@@ -138,12 +138,4 @@ API documentation is available at `/api/v1/docs` when the service is running.
 
 ## Environment Variables
 
-The following environment variables are required:
-
-- `FLASK_APP`: Application entry point (default: app.wsgi:app)
-- `FLASK_ENV`: Environment (development, staging, production)
-- `SECRET_KEY`: Secret key for security
-- `DATABASE_URL`: PostgreSQL connection string
-- `JWT_SECRET_KEY`: Secret key for JWT encoding
-- `JWT_ACCESS_TOKEN_EXPIRES`: JWT token expiration time in seconds (default: 43200 for 12 hours)
-- `LOG_LEVEL`: Logging level (default: INFO)
+Checkout the [`.env.example`](./.env.example) file to get all the environment variables.
