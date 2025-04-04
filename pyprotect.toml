@@ -22,10 +22,6 @@ profile = "black"
 multi_line_output = 3
 line_length = 88
 
-[tool.bandit]
-exclude_dirs = ["tests"]
-skips = ["B311"]  # Random is not used for security/cryptographic purposes
-
 [tool.pytest.ini_options]
 minversion = "6.0"
 testpaths = ["tests"]
