@@ -1,0 +1,13 @@
+services:
+  api:
+    environment:
+      - FLASK_ENV=development
+      - SQLALCHEMY_DATABASE_URI=postgresql://postgres:postgres@db:5432/tasksservice
+    volumes:
+      - .:/app
+    command: >
+      gunicorn --bind 0.0.0.0:5000
+               --workers 2
+               --log-level debug
+               --reload
+               wsgi:app
