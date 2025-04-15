@@ -1,8 +1,9 @@
 """Database connection and models setup."""
 from datetime import datetime, timezone
 
-from sqlalchemy import Column, DateTime
+from sqlalchemy import DateTime
 from sqlalchemy.ext.declarative import declared_attr
+from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.extensions import db
 
@@ -49,16 +50,29 @@ class Model(CRUDMixin, db.Model):
         """Return snake-case of the class name."""
         return cls.__name__.lower()
 
+    def __init__(self, **kwargs):
+        """Allow initialization with keyword arguments."""
+        super().__init__()
+        for key, value in kwargs.items():
+            if not hasattr(self, key):
+                raise TypeError(f"Invalid keyword argument: {key}")
+            setattr(self, key, value)
+
 
 class TimeStampedModel(Model):
     """Base model class that includes timestamp fields."""
 
     __abstract__ = True
 
-    created_at = Column(DateTime, default=datetime.now(timezone.utc), nullable=False)
-    updated_at = Column(
-        DateTime,
-        default=datetime.now(timezone.utc),
-        onupdate=datetime.now(timezone.utc),
+    created_at: Mapped[datetime] = mapped_column(
+        default=lambda: datetime.now(timezone.utc),
         nullable=False,
+        doc="The created at date.",
+    )
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime,
+        default=lambda: datetime.now(timezone.utc),
+        onupdate=lambda: datetime.now(timezone.utc),
+        nullable=False,
+        doc="The updated at date.",
     )
