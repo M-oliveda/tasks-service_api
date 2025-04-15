@@ -256,10 +256,10 @@ Following GitFlow:
 
 - [x] 1. Set up project repository and initial structure
 - [x] 2. Create Docker and Docker Compose configurations
-- [ ] 3. Implement database models and migrations
-- [ ] 4. Develop authentication system
-- [ ] 5. Implement core task management features
-- [ ] 6. Add categories and tags functionality
+- [x] 3. Implement database models and migrations
+- [x] 4. Develop authentication system
+- [x] 5. Implement core task management features
+- [x] 6. Add categories and tags functionality
 - [ ] 7. Implement search and filtering
 - [ ] 8. Write comprehensive tests
 - [ ] 9. Optimize for performance
