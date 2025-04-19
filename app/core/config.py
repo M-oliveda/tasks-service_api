@@ -93,9 +93,9 @@ class TestingSettings(Settings):
     TESTING: bool = Field(default=True, description="Testing mode", examples=[True])
     DEBUG: bool = Field(default=True, description="Debug mode", examples=[True])
     SQLALCHEMY_DATABASE_URI: str = Field(
-        default="postgresql://postgres:postgres@db:5432/tasksservice_test",
+        default="sqlite+pysqlite:///:memory:",
         description="Database URL",
-        examples=["postgresql://postgres:postgres@db:5432/tasksservice_test"],
+        examples=["sqlite+pysqlite:///:memory:"],
     )
     JWT_ACCESS_TOKEN_EXPIRES: int = Field(
         # 1 hour for testing
