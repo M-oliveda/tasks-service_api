@@ -33,3 +33,4 @@ repos:
     rev: ''
     hooks:
     -   id: bandit
+        exclude: '.*(tests|__tests__|test_).*\.py'
