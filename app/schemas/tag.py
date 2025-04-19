@@ -37,7 +37,7 @@ class TagUpdate(BaseSchema):
         examples=["updated-tag-name"],
     )
 
-    class Config:
+    class ConfigDict:
         """Configuration for TagUpdate schema."""
 
         extra = "forbid"
@@ -75,7 +75,7 @@ class TagStats(TagInDB):
 
     task_count: int = Field(description="Number of tasks using this tag", examples=[5])
 
-    class Config:
+    class ConfigDict:
         """Additional configuration for TagStats schema."""
 
         json_schema_extra = {

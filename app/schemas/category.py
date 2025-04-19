@@ -49,7 +49,7 @@ class CategoryUpdate(BaseSchema):
         examples=["Updated description for category"],
     )
 
-    class Config:
+    class ConfigDict:
         """Configuration for CategoryUpdate schema."""
 
         extra = "forbid"

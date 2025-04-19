@@ -101,7 +101,7 @@ class TaskUpdate(BaseSchema):
         default=None, description="Updated list of tag IDs", examples=[[3, 4]]
     )
 
-    class Config:
+    class ConfigDict:
         """Configuration for TaskUpdate schema."""
 
         extra = "forbid"
