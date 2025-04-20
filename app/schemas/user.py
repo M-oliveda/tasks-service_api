@@ -72,7 +72,7 @@ class UserUpdate(BaseSchema):
         examples=["password123"],
     )
 
-    class Config:
+    class ConfigDict:
         """Configuration for UserUpdate schema."""
 
         extra = "forbid"
