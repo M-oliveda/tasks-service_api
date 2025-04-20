@@ -1,0 +1,10 @@
+services:
+  api:
+    environment:
+      - FLASK_ENV=production
+    volumes: []  # Don't mount source code in production
+    command: >
+      gunicorn --bind 0.0.0.0:5000
+               --workers 4
+               --log-level warning
+               wsgi:app
