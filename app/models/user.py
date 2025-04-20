@@ -30,7 +30,7 @@ class User(TimeStampedModel):
         Enum(RoleEnum), default=RoleEnum.USER, nullable=False, doc="The user's role."
     )
     last_login: Mapped[datetime] = mapped_column(
-        DateTime, nullable=True, doc="The user's last login timestamp."
+        DateTime(timezone=True), nullable=True, doc="The user's last login timestamp."
     )
 
     # Relationships
@@ -66,7 +66,7 @@ class User(TimeStampedModel):
             "id": self.id,
             "username": self.username,
             "email": self.email,
-            "role": self.role,
+            "role": self.role.value,
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat(),
             "last_login": self.last_login.isoformat() if self.last_login else None,

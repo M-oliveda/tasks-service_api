@@ -85,7 +85,9 @@ class Task(TimeStampedModel):
 
     def remove_tag(self, tag: Tag) -> None:
         """Remove a tag from this task."""
-        task_tag = TaskTag.query.filter_by(task_id=self.id, tag_id=tag.id).first()
+        task_tag = (
+            db.session.query(TaskTag).filter_by(task_id=self.id, tag_id=tag.id).first()
+        )
         if task_tag:
             db.session.delete(task_tag)
 
